@@ -1,7 +1,10 @@
-A POC testbed is set up to demo how a K8s pod opens and processes a TCP/IP socket within another pod on the same node using the Linux namespace API.
+### Introduction
+
+A simple, nifty program is written to inject any given command to from outside and executed in a container, for the purpose of degugging, data collection or others. It is intended as a lite version of kubetl debug without the overhead of running a full blown container in the same pod as the target. 
 
 ![Parachute_command_into_container](Istiovirtualservicecomboaccess_20250529.png)
 
+Here are the main 
 In this example, the backend pod runs as a popen(3) server that receives shell commands from a client pod, executes them locally and returns the results to the client. Instead of the backend pod, the server process creates a socket in the frontend pod to listen and accept popen requests from the client pod. Consequently, the client pod connects to the frontend to send popen requests, which are ready to be picked up and processed by the backend server.
 
 ### Build a Linux namespace-aware popen(3) server
