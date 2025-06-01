@@ -43,7 +43,7 @@ error: Internal error occurred: Internal error occurred: error executing command
 controlplane:~$
 ```
 
-Invoke the program under test on the node
+Go to the node where the target container is running and try out the program by executing bash on the target container.
 ```
 node01:~$ ./parachute_exec curlybox bash
 node01:~$ 
@@ -74,5 +74,6 @@ node01:~$ ip -4 addr
        valid_lft forever preferred_lft forever
 ```
 
+Note that 
 
 
