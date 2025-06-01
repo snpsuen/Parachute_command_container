@@ -9,7 +9,7 @@ A short, nifty program is written to allow any given command to be injected from
 *  The program accepts the name of a target container and a command to be executed therein as input arguments.
 *  The given command is provided by the host, thus belonging to the mount namespace of the host.
 *  Upon execution, the command joins the pid and network namespace of the given container.
-*  The command goes on to mount proc for process utilities like ps, top to work with the pid namespace of the container.
+*  The command goes on to mount /proc for process utilities like ps, top to work with the pid namespace of the container.
 
 ### Program hightlights
 
