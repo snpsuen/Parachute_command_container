@@ -2,7 +2,7 @@
 
 A short, nifty program is written to allow any given command to be injected from outside and executed in a container. Useful for data collection, diagnostics or other measures, it is intended to work as a lite version of kubetl debug without the overhead of running a full blown container in the same pod as the target. 
 
-![Parachute_command_into_container](Istiovirtualservicecomboaccess_20250529.png)
+![Parachute_command_into_container](parachute_container_command.png.png)
 
 ### TL;DR
 
