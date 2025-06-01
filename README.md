@@ -74,6 +74,8 @@ node01:~$ ip -4 addr
        valid_lft forever preferred_lft forever
 ```
 
-Commands invoked by the parachuted bash shell shows that they are serving the pid and network namespace of the container. One interesting thing is, the shell still displays the name of the host for the prompt, cause it still belongs to the UTS namespace of the host.
+Commands invoked by the parachuted bash shell show that they are serving the pid and network namespace of the container.
+
+One interesting thing is, the shell still displays the name of the host for the prompt, cause it still belongs to the UTS namespace of the host.
 
 
