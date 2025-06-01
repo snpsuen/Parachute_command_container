@@ -51,7 +51,7 @@ int set_con_ns(char* container) {
 
         if (unshare(CLONE_NEWNS) == -1)
                 err(EXIT_FAILURE, "unshare CLONE_NEWNS");
-  
+
         nsflag = CLONE_NEWPID | CLONE_NEWNET;
         if (setns(pfd, nsflag) == -1)
                 err(EXIT_FAILURE, "setns %d %d", pfd, nsflag);
