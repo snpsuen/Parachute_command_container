@@ -9,11 +9,9 @@ A short, nifty program is written to allow any given command to be injected from
 *  The program accepts the name of a target container and a command to be executed therein as input arguments.
 *  The given command is provided by the host, thus belonging to the mount namespace of the host.
 *  Upon execution, the command joins the pid and network namespace of the given container.
-*  The command goes on to mount proc for process utilities like ps, top to work with the target pid namespace.
+*  The command goes on to mount proc for process utilities like ps, top to work with the pid namespace of the container.
 
-In this example, the backend pod runs as a popen(3) server that receives shell commands from a client pod, executes them locally and returns the results to the client. Instead of the backend pod, the server process creates a socket in the frontend pod to listen and accept popen requests from the client pod. Consequently, the client pod connects to the frontend to send popen requests, which are ready to be picked up and processed by the backend server.
-
-### Build a Linux namespace-aware popen(3) server
+### Program hightlights
 
 Running on a backend pod, the server is designed to perform the following key tasks.
 
