@@ -17,6 +17,6 @@ A short, nifty program is written to allow any given command to be injected from
 2. Main calls pidfd_open(2) and setns(2) to join the pid and network namepaces of the container.
 3. Main calls unshare(2) to enter a new mount namespace that is initialised with a copy of the host mount points.
 4. Main calls fork(2) to branch off to a child process.
-5. Child calls mount(2) to set the /proc mount point MS_PRIVATE ro avoid propagating any subsequent mount events to the host. 
+5. Child calls mount(2) to set the /proc mount point MS_PRIVATE so that any subsequent mounts will not be progagated to the host. 
 6. Child Calls mount(2) again to mount the proc of the pid namespace of the container on /proc properly.
 7. Finally, child calls exec(2) to execute the given command and overlay itself.
