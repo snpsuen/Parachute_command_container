@@ -25,7 +25,23 @@ A short, nifty program is written to allow any given command to be injected from
 
 The program is ready to be tested on a Killercoda Kubernetes playground or your preferable environment.
 Download the source and compile it on the Kubernetes nodes.
-
 ```
 gcc -o parachute_exec parachute_exec.c
 ```
+
+Run a target K8s pod. Observe that the bash shell is not available in the container itself.
+```
+controlplane:~$ kubectl run curlybox --image=ferrgo/curlybox -- sleep "infinity"
+pod/curlybox created
+controlplane:~$ 
+controlplane:~$ kubectl get pod -o wide                                         
+NAME       READY   STATUS    RESTARTS   AGE   IP            NODE     NOMINATED NODE   READINESS GATES
+curlybox   1/1     Running   0          20s   192.168.1.4   node01   <none>           <none>
+controlplane:~$ 
+controlplane:~$ kubectl exec -it curlybox -- bash
+error: Internal error occurred: Internal error occurred: error executing command in container: failed to exec in container: failed to start exec "5eca3b04ac2f262bdfd9826f66485948ea530b43423e7ec8cd4a529fd37e13c7": OCI runtime exec failed: exec failed: unable to start container process: exec: "bash": executable file not found in $PATH: unknown
+controlplane:~$
+```
+
+
+
