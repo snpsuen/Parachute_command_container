@@ -41,6 +41,7 @@ int set_ns(int cpid) {
 }
 
 int main(int argc, char* argv[]) {
+        int i;
         char** execargv;
 
         if (argc < 2) {
@@ -56,7 +57,7 @@ int main(int argc, char* argv[]) {
         }
 
         set_ns(1);
-        if (execvp(execargv[0], execargv) < 0) {
+        if (execvp(execargv[0], execargv) < 0)
                 perror("execvp error");
     
         exit(1);
